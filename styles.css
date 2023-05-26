@@ -1,0 +1,75 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #c2cac4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.row-cards{
+    padding-top: 10vh;
+}
+
+.card-header{
+    background-color: #728176;
+    color: #fff;
+    font-weight: 500;
+}
+
+.container-conversor{
+
+  padding: 4vh;
+  border-radius: 2vh;
+}
+
+.container-total{
+    background-color: #f8f9fa;
+    padding: 4.5vh 2vh 2vh 2vh;
+    display: inline-block;
+    border-radius: 1vh;
+    border: 1px solid black;
+}
+
+
+.container-izquierda{
+    background-color: #fff;
+    padding: 4vh;
+  border-radius: 2vh 0vh 0vh 2vh;
+ 
+}
+
+.container-derecha{
+    background-color: #728176;
+    padding: 4vh;
+    border-radius: 0 2vh 2vh 0;
+}
+
+#inputDolares, #inputPesos{
+    background-color: #f8f9fa;
+}
+
+
+.font-color-grey{
+    color: #d6d6d6;
+}
+
+.font-color-impuestos{
+    color: #ffffff;
+}
+
+.font-color-impuestos-total{
+    font-size: 20px;
+    color: #000000;
+}
+.list-group-description{
+   list-style-type: none;
+}
+
+.img-izquierda{
+    opacity: 10%;
+
+} 
+
+@media (max-width: 1250px) {
+    
+      
+  }
