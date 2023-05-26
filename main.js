@@ -192,8 +192,8 @@ callGetCotizacion();
                                         pesosTotal = arr[0] + '.' + arr[1] + arr[2] + arr[3] + ',' + arrMiles3[1]
                                         console.log(arr)
                                     }
-                                document.getElementById("valorImpuestoPais").innerHTML=pesosImpuestoPais;
-                                document.getElementById("valorImpuestoGanancia").innerHTML=pesosImpuestoGanancia;
+                                document.getElementById("valorImpuestoPais").innerHTML= '$ ' + pesosImpuestoPais;
+                                document.getElementById("valorImpuestoGanancia").innerHTML='$ ' + pesosImpuestoGanancia;
                                 document.getElementById("valorTotal").innerHTML=pesosTotal;
                             }
 
