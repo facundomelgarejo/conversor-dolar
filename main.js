@@ -12,6 +12,10 @@ let dolarBlueCompra = document.querySelector('#dolarBlueCompra')
 let dolarBlueVenta = document.querySelector('#dolarBlueVenta')
 
 
+let valorImpPais = 0.3
+let valorImpGan = 0.3
+
+
 function getCotizacionOficial() {
   return new Promise((resolve, reject) => {
     fetch(urlDolarOficial)
@@ -170,8 +174,9 @@ callGetCotizacionBlue();
     
  }
 
+
+
 function calcularImpuestos(bool){
-   
     var valorPesos = document.getElementById("inputPesosOficial").value;
    
     valorPesos = valorPesos.replace(/\./g,'')
@@ -182,8 +187,8 @@ function calcularImpuestos(bool){
         document.getElementById("valorImpuestoGanancia").innerHTML=0;
         document.getElementById("valorTotal").innerHTML=0;
     } else {
-        pesosImpuestoPais=new Intl.NumberFormat("es-ES").format(parseFloat((valorPesos)*0.35).toFixed(2))
-        pesosImpuestoGanancia=new Intl.NumberFormat("es-ES").format(parseFloat((valorPesos)*0.30).toFixed(2))
+        pesosImpuestoPais=new Intl.NumberFormat("es-ES").format(parseFloat((valorPesos)*valorImpPais).toFixed(2))
+        pesosImpuestoGanancia=new Intl.NumberFormat("es-ES").format(parseFloat((valorPesos)*valorImpGan).toFixed(2))
         pesosTotal=new Intl.NumberFormat("es-ES").format(parseFloat((valorPesos)*1.65).toFixed(2))
         //Add . in 1.000
         let arrMiles1 = pesosImpuestoPais.split(',');
