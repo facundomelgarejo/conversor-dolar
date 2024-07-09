@@ -51,23 +51,6 @@
                 </div>
             </div>
           </div>
-          <div class="col-12 col-md-3">
-            <div class="card text-dark bg-light mb-3" >
-                <div class="card-header d-flex justify-content-center"><img src="./assets/riesgo_pais_s.png" alt="" srcset=""> Dolar Turista</div>
-                <div class="card-body">
-                    <div class="row ">
-                        <div class="col-6 ">
-                            <p class="card-text d-flex justify-content-center" >Compra</p>
-                            <h5 class="card-title d-flex justify-content-center"  id="dolarTuristaCompra"><div class="spinner-border text-secondary" role="status"></div></h5>
-                        </div>
-                        <div class="col-6  ">
-                            <p class="card-text d-block d-flex justify-content-center">Venta</p>
-                            <h5 class="card-title d-flex justify-content-center"  id="dolarTuristaVenta"><div class="spinner-border text-secondary" role="status"></div></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
         </div>
         <div class="container">
             <div class="row">
@@ -76,28 +59,24 @@
             </div>
         </div>
       </div>
-      <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+      
 
       
         <div class="container container-conversor">    
             <div class="row " style="padding-bottom: 200px;">
-                    <div class="col-12 col-md-6 d-none d-lg-block  container-izquierda"> <!-- Parte izquierda -->
-                        <div class="row" style="position: relative;  overflow:hidden;" >
-                            <h4 class="text-center mt-4" style="color: #424242 !important; font-weight: 600 !important; font-size: 30px !important;  " tabindex="0">Conversor Dólar Oficial</h4>
-                            <img src="./assets/conversor-divisas4.jpg" alt="" srcset="" class="img-izquierda center-block"  >
-                        </div>
-                        
-                    </div>
-                    <div class="col-12 col-md-12 col-lg-6 container-derecha" style=" overflow:hidden;"><!-- Parte derecha -->
-                        <div class="row">
-                            <h4 class="d-sm-block d-md-none text-center" style="color: #424242 !important; font-weight: 600 !important; font-size: 24px !important;" tabindex="0">Conversor Dólar Oficial</h4>
-                        </div>
+
+                    <!-- Parte izquierda Dolar OFicial-->
+                    <div class="col-12 col-md-12 col-lg-6 container-izquierda" style="overflow:hidden;">
                         <div class="row d-flex align-items-center font-color-grey">
+                            
+                            <h4 class="mt-4 text-center" style="color: #424242 !important; font-weight: 600 !important; font-size: 24px !important;" tabindex="0">Dólar Oficial - Pesos</h4>
+                            
                             <p>&nbsp;</p>
 
                             <div class="col-11 m-3 ">
-                                <input class="form-control" id="inputDolares" oninput="dolaresPesos(this.value)" placeholder="Dólares (Venta)" type="text" />
-                                <p style="font-size: 12px">*Recuerde seguir el <abbr title="Ej: 10.000,00">formato</abbr> de escritura</p>
+                                <p>Dólares (Valor Venta)</p>
+                                <input class="form-control" id="inputDolaresOficial" oninput="dolaresPesosOficial(this.value)" placeholder="Dólares (Venta)" type="text" />
+                                <span style="font-size: 12px">*Recuerde seguir el <abbr title="Ej: 10.000,00">formato</abbr> de escritura</span>
                             </div>
 
                             <!--
@@ -109,8 +88,9 @@
                             
 
                             <div class="col-11 m-3">
-                                <input class="form-control d-inline-block" id="inputPesos" oninput="pesosDolares(this.value)" placeholder="Pesos" type="text" />
-                                <p style="font-size: 12px">*Recuerde seguir el <abbr title="Ej: 10.000,00">formato</abbr> de escritura</p>
+                                <p>Pesos</p>
+                                <input class="form-control d-inline-block" id="inputPesosOficial" oninput="pesosDolaresOficial(this.value)" placeholder="Pesos" type="text" />
+                                <span style="font-size: 12px">*Recuerde seguir el <abbr title="Ej: 10.000,00">formato</abbr> de escritura</span>
                             </div>
 
                         </div>
@@ -136,11 +116,53 @@
                                     <li class="container-total offset-1 offset-md-2 font-color-impuestos-total" style="min-width: 200px">
                                         <p class="d-inline-block" ><b>Total: $ </b></p>
 
-                                        <p class="d-inline-block" id="valorTotal">&nbsp;</p>
+                                        <p class="d-inline-block" id="valorTotalOficial">&nbsp;</p>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        
+                    </div>
+
+                    <!-- Parte derecha Dolar Blue-->
+                    <div class="col-12 col-md-12 col-lg-6 container-derecha" style="overflow:hidden;">
+                        <div class="row d-flex align-items-center font-color-grey">
+                            
+                            <h4 class="mt-4 text-center" style="color: #424242 !important; font-weight: 600 !important; font-size: 24px !important;" tabindex="0">Dólar Blue - Pesos</h4>
+                            
+                            <p>&nbsp;</p>
+
+                            <div class="col-11 m-3 ">
+                                <p>Dólares (Valor Venta)</p>
+                                <input class="form-control" id="inputDolaresBlue" oninput="dolaresPesosBlue(this.value)" placeholder="Dólares (Venta)" type="text" />
+                                <span style="font-size: 12px">*Recuerde seguir el <abbr title="Ej: 10.000,00">formato</abbr> de escritura</span>
+                            </div>
+
+                            <!--
+                            <div class="col-12 col-lg-2 text-center">
+                                <img alt="" class="d-none d-lg-inline-block" src="./assets/flechas-arriba-y-abajo.png" srcset="" width="17" /> 
+                                
+                            </div>
+                             -->
+                            
+
+                            <div class="col-11 m-3">
+                                <p>Pesos</p>
+                                <input class="form-control d-inline-block" id="inputPesosBlue" oninput="pesosDolaresBlue(this.value)" placeholder="Pesos" type="text" />
+                                <span style="font-size: 12px">*Recuerde seguir el <abbr title="Ej: 10.000,00">formato</abbr> de escritura</span>
+                            </div>
+
+                    </div>
+
+                        
+                    <div class="col-12 offset-md-1">
+                        <ul class="list-group-description font-color-impuestos align-items-end">
+                            <li class="container-total offset-1 offset-md-2 font-color-impuestos-total " style="min-width: 200px">
+                                <p class="d-inline-block" ><b>Total: $ </b></p>
+                                <p class="d-inline-block" id="valorTotalBlue">&nbsp;</p>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
 
             </div>
         </div>

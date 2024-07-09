@@ -31,14 +31,15 @@ body{
 
 
 .container-izquierda{
-    background-color: #fff;
+
+    background-color: #728176;
     padding: 4vh;
   border-radius: 2vh 0vh 0vh 2vh;
  
 }
 
 .container-derecha{
-    background-color: #728176;
+    background-color: #fff;
     padding: 4vh;
     border-radius: 0 2vh 2vh 0;
 }
