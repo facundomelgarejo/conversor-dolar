@@ -108,7 +108,7 @@ callGetCotizacionBlue();
 
   document.getElementById("valorImpuestoPais").innerHTML=0;
   document.getElementById("valorImpuestoGanancia").innerHTML=0;
-  document.getElementById("valorTotal").innerHTML=0;
+  document.getElementById("valorTotalOficial").innerHTML=0;
 
  function pesosDolaresOficial(valNum) {
      valNum = valNum.replace(/\./g,'')
