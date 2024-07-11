@@ -1,5 +1,7 @@
 let urlDolarOficial = 'https://dolarapi.com/v1/dolares/oficial'
 let urlDolarBlue = 'https://dolarapi.com/v1/dolares/blue'
+let urlDolarMEP = 'https://dolarapi.com/v1/dolares/bolsa'
+
 let valorActualDolar = 0;
 let fechaActualizacion = document.querySelector('#fechaActualizacion')
 const fecha = new Date();
@@ -10,6 +12,8 @@ let dolarOficialCompra = document.querySelector('#dolarOficialCompra')
 let dolarOficialVenta = document.querySelector('#dolarOficialVenta')
 let dolarBlueCompra = document.querySelector('#dolarBlueCompra')
 let dolarBlueVenta = document.querySelector('#dolarBlueVenta')
+let dolarMepCompra = document.querySelector('#dolarMepCompra')
+let dolarMepVenta = document.querySelector('#dolarMepVenta')
 
 
 let valorImpPais = 0.3
@@ -75,8 +79,39 @@ function getCotizacionBlue() {
   
 }
 
+function getCotizacionMep() {
+    return new Promise((resolve, reject) => {
+      fetch(urlDolarMEP)
+        .then(response => response.json())
+        .then(data => {
+          //obtengo los datos en el arreglo data
+          
+          if(valorActualDolar !== data.compra){
+            fechaActualizacion.innerText = diaActual + '/' + mesActual + '/' + anioActual;
+            }
+            dolarMepCompra.innerText = '$ ' + data.compra;
+            dolarMepVenta.innerText = '$ ' + data.venta;
+        
+            /*
+            dolarBlueCompra.innerText = '$' + data[1].casa.compra;
+            dolarBlueVenta.innerText =  '$' + data[1].casa.venta;
+        */
+            valorActualDolar = data.compra;
+    
+  
+          // Retorna el valor deseado
+          resolve(data.venta);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  
+}
+
 let valorDolarOficial;
 let valorDolarBlue;
+let valorDolarMep;
 
 async function callGetCotizacionOficial() {
   try {
@@ -98,10 +133,21 @@ async function callGetCotizacionBlue() {
     }
 }
 
+async function callGetCotizacionMep() {
+    try {
+      const response = await getCotizacionMep();
+      let dolar = response;
+      valorDolarMep = parseFloat(dolar);
+    } catch (error) {
+      console.log(error);
+    }
+}
+
 
 
 callGetCotizacionOficial();
 callGetCotizacionBlue();
+callGetCotizacionMep();
 
   /* --------------------           ----------------------------- */
 
